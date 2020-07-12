@@ -104,8 +104,7 @@ export default class OptionGroup extends Component {
      * @constructor
      * @param props
      */
-    constructor(props)
-    {
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -117,13 +116,12 @@ export default class OptionGroup extends Component {
      * onValueChange
      * @param value
      */
-    onValueChange(value)
-    {
-        if(this.props.onChange) {
+    onValueChange(value) {
+        if (this.props.onChange) {
             this.props.onChange(value)
         }
         this.setState({
-            selected : value
+            selected: value
         });
     }
 
@@ -131,8 +129,7 @@ export default class OptionGroup extends Component {
      * render
      * @returns {XML}
      */
-    render()
-    {
+    render() {
         let index = 0;
 
 
@@ -153,11 +150,11 @@ export default class OptionGroup extends Component {
 
                     index++;
 
-                    let value = this.props.useKeyValue ? params[this.props.useKeyValue ] : params;
+                    let value = this.props.useKeyValue ? params[this.props.useKeyValue] : params;
 
                     let label = this.props.useLabelValue ? params[this.props.useLabelValue] : name;
 
-                    if((isArray && !this.props.useKeyValue) || this.props.invertKeyLabel) {
+                    if ((isArray && !this.props.useKeyValue) || this.props.invertKeyLabel) {
                         let v = value;
                         value = label;
                         label = v;
@@ -168,7 +165,7 @@ export default class OptionGroup extends Component {
                             key={value}
                             style={[
                                 this.state.selected == value ? styles.selectedButtonItem : styles.buttonItem,
-                                index == 1 ? {borderLeftWidth: 0} : {},
+                                index == 1 ? { borderLeftWidth: 0 } : {},
                             ]}
                             activeOpacity={0.5}
                             onPress={() => this.onValueChange(value)}
